@@ -46,7 +46,4 @@ This project demonstrates how multiple intelligent agents can work independently
 | 🌐 Trend Hunter | Tech Trend Finder | Finds the latest technology trends |
 | 🎧 Speech AI | Speech-to-Text | Converts spoken input into text |
 
----
-
-## 🏗️ Architecture
 
