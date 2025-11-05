@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پرسشنامه حرفه‌ای با خروجی کامل</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f7f6; color: #333; line-height: 1.6; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .container { background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); max-width: 800px; width: 100%; }
+        h1 { text-align: center; color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+        fieldset { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 25px; }
+        legend { font-size: 1.2em; font-weight: bold; color: #333; padding: 0 10px; }
+        label { display: block; margin: 10px 0; cursor: pointer; }
+        textarea { width: 100%; height: 70px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: inherit; font-size: 0.95em; box-sizing: border-box; }
+        textarea:focus { border-color: #0056b3; outline: none; }
+        .evidence-label { font-weight: bold; margin-top: 15px; color: #555; }
+        button { display: block; width: 100%; padding: 15px; font-size: 1.1em; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; }
+        button:hover { background-color: #0056b3; }
+        .instructions { background-color: #e9f5ff; border-right: 4px solid #0056b3; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        #output-container { margin-top: 30px; }
+        #output-text { width: 100%; height: 300px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; white-space: pre-wrap; font-family: 'Courier New', Courier, monospace; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>پرسشنامه حرفه‌ای با خروجی کامل</h1>
+        <p class="instructions">برای یک تحلیل دقیق، تکمیل تمام بخش‌ها (هم انتخاب گزینه و هم نوشتن توضیحات مبتنی بر شواهد) **الزامی** است.</p>
+
+        <form id="philosophyForm">
+
+            <fieldset> <legend>۱. ذات انسان</legend>
+                <p>طبیعت بنیادین انسان چیست؟</p>
+                <label><input type="radio" name="human_nature" value="ذاتاً خوب" required> ذاتاً خوب است، اما جامعه او را تخریب می‌کند.</label>
+                <label><input type="radio" name="human_nature" value="ترکیبی از خیر و شر" required> ترکیبی از خیر و شر است و در یک کشمکش دائمی قرار دارد.</label>
+                <label><input type="radio" name="human_nature" value="لوح سفید" required> مانند یک لوح سفید است که توسط محیط و انتخاب‌هایش شکل می‌گیرد.</label>
+                <label><input type="radio" name="human_nature" value="اصالتاً منفعت‌طلب" required> اصالتاً منفعت‌طلب است و برای بقا تلاش می‌کند.</label>
+                <label class="evidence-label" for="human_nature_evidence">شواهد:</label>
+                <textarea id="human_nature_evidence" name="human_nature_evidence" placeholder="مثال: در مصاحبه‌اش گفت: 'بچه‌ها پاک به دنیا میان، این جامعه است که خرابشون می‌کنه.'" required></textarea>
+            </fieldset>
+
+            <fieldset> <legend>۲. اراده آزاد در برابر جبر</legend>
+                <p>انسان در انتخاب‌های خود چقدر آزاد است؟</p>
+                <label><input type="radio" name="free_will" value="اراده کاملاً آزاد" required> کاملاً آزاد است و مسئول تمام انتخاب‌هایش است (اختیارگرایی).</label>
+                <label><input type="radio" name="free_will" value="تحت تاثیر عوامل بیرونی" required> آزاد است، اما انتخاب‌هایش به شدت تحت تاثیر ژنتیک و محیط است (سازگارگرایی).</label>
+                <label><input type="radio" name="free_will" value="اراده آزاد یک توهم است" required> اراده آزاد یک توهم است و تمام اعمال توسط زنجیره علت و معلول تعیین می‌شود (جبرگرایی).</label>
+                <label class="evidence-label" for="free_will_evidence">شواهد:</label>
+                <textarea id="free_will_evidence" name="free_will_evidence" placeholder="مثال: او همیشه تاکید می‌کند که 'هرکس مسئول صددرصد زندگی خودشه و بهانه قابل قبول نیست.'" required></textarea>
+            </fieldset>
+
+            <fieldset> <legend>۳. هستی‌شناسی و متافیزیک</legend>
+                <p>نیروی محرک اصلی در جهان چیست؟</p>
+                <label><input type="radio" name="metaphysics" value="طرح یا هدف متعالی" required> طرح یا هدفی بزرگ و از پیش تعیین‌شده (معنوی یا الهی).</label>
+                <label><input type="radio" name="metaphysics" value="قوانین علمی و مادی" required> قوانین علمی و روابط علت و معلولی مادی.</label>
+                <label><input type="radio" name="metaphysics" value="اراده و انتخاب فردی" required> اراده و انتخاب‌های آزاد فردی که به جهان معنا می‌دهد.</label>
+                <label class="evidence-label" for="metaphysics_evidence">شواهد:</label>
+                <textarea id="metaphysics_evidence" name="metaphysics_evidence" placeholder="مثال: در خاطراتش نوشته: 'احساس می‌کنم یک نیروی بزرگ‌تر من را در این مسیر هدایت می‌کند.'" required></textarea>
+            </fieldset>
+
+            <fieldset> <legend>۴. رابطه با طبیعت</legend>
+                <p>جایگاه انسان در طبیعت چیست؟</p>
+                <label><input type="radio" name="nature" value="ارباب طبیعت" required> انسان ارباب طبیعت است و حق دارد از منابع آن برای پیشرفت خود استفاده کند.</label>
+                <label><input type="radio" name="nature" value="نگهبان طبیعت" required> انسان نگهبان طبیعت است و مسئولیت اخلاقی برای حفظ آن دارد.</label>
+                <label><input type="radio" name="nature" value="بخشی از طبیعت" required> انسان صرفاً بخشی برابر از شبکه پیچیده حیات در طبیعت است.</label>
+                <label class="evidence-label" for="nature_evidence">شواهد:</label>
+                <textarea id="nature_evidence" name="nature_evidence" placeholder="مثال: پروژه‌های ساختمانی او همیشه با حداقل آسیب به محیط زیست طراحی می‌شدند." required></textarea>
+            </fieldset>
+
+            <fieldset> <legend>۵. ارزش بنیادین زندگی (Axiology)</legend>
+                <p>ارزشمندترین هدف یا غایت در زندگی چیست؟</p>
+                <label><input type="radio" name="axiology" value="شادی و لذت" required> شادی، آرامش و دوری از رنج.</label>
+                <label><input type="radio" name="axiology" value="دانش و حقیقت" required> کسب دانش، رسیدن به حقیقت و فهم جهان.</label>
+                <label><input type="radio" name="axiology" value="هدف و دستاورد" required> داشتن هدف، رسیدن به دستاورد و به جا گذاشتن یک میراث.</label>
+                <label><input type="radio" name="axiology" value="عشق و ارتباط" required> عشق، ارتباطات انسانی و خدمت به دیگران.</label>
+                <label class="evidence-label" for="axiology_evidence">شواهد:</label>
+                <textarea id="axiology_evidence" name="axiology_evidence" placeholder="مثال: مهمترین هدفش را 'ایجاد اثری ماندگار که نسل‌های بعد از آن استفاده کنند' عنوان کرد." required></textarea>
+            </fieldset>
+            
+            <fieldset> <legend>۶. منبع معنا</legend>
+                 <p>معنای زندگی از کجا نشأت می‌گیرد؟</p>
+                <label><input type="radio" name="meaning" value="از یک منبع بیرونی" required> از یک منبع بیرونی و متعالی (مانند خدا، یک طرح کیهانی) کشف می‌شود.</label>
+                <label><input type="radio" name="meaning" value="توسط فرد ساخته می‌شود" required> توسط خود فرد و از طریق انتخاب‌ها و تعهداتش ساخته می‌شود.</label>
+                <label><input type="radio" name="meaning" value="در روابط انسانی یافت می‌شود" required> در بطن روابط انسانی، عشق و تعلق به یک جامعه یافت می‌شود.</label>
+                 <label class="evidence-label" for="meaning_evidence">شواهد:</label>
+                <textarea id="meaning_evidence" name="meaning_evidence" placeholder="مثال: همیشه می‌گفت معنای واقعی را در کمک به تیمش برای رسیدن به موفقیت پیدا کرده است." required></textarea>
+            </fieldset>
+
+            <fieldset> <legend>۷. نگرش به رنج</legend>
+                <p>نقش یا معنای سختی و رنج در زندگی چیست؟</p>
+                <label><input type="radio" name="suffering" value="ابزاری برای رشد" required> بخشی ضروری برای رشد، یادگیری و قوی‌تر شدن است.</label>
+                <label><input type="radio" name="suffering" value="یک مشکل قابل حل" required> مشکلی است که باید از طریق منطق، علم و فناوری آن را به حداقل رساند.</label>
+                <label><input type="radio" name="suffering" value="بخشی بی‌معنا از هستی" required> پدیده‌ای تصادفی و بی‌معناست که باید آن را تحمل کرد.</label>
+                <label class="evidence-label" for="suffering_evidence">شواهد:</label>
+                <textarea id="suffering_evidence" name="suffering_evidence" placeholder="مثال: 'سخت‌ترین شکست‌هایم، بهترین درس‌هایم بودند.' این جمله تکیه‌کلام همیشگی او بود." required></textarea>
+            </fieldset>
+            
+            <fieldset> <legend>۸. نقش هنر و زیبایی (Aesthetics)</legend>
+                <p>هنر و زیبایی چه نقشی در زندگی دارند؟</p>
+                <label><input type="radio" name="aesthetics" value="بازتاب یک حقیقت متعالی" required> هنر بازتابی از یک حقیقت یا زیبایی عینی و جهانی است.</label>
+                <label><input type="radio" name="aesthetics" value="ابراز احساسات شخصی" required> هنر ابزاری برای ابراز احساسات و تجربیات شخصی و کاملاً سوبژکتیو است.</label>
+                <label><input type="radio" name="aesthetics" value="ابزاری برای تغییر اجتماعی" required> هنر یک ابزار قدرتمند برای نقد و تغییر اجتماعی و فرهنگی است.</label>
+                <label class="evidence-label" for="aesthetics_evidence">شواهد:</label>
+                <textarea id="aesthetics_evidence" name="aesthetics_evidence" placeholder="مثال: او تابلوهای انتزاعی را 'خط‌خطی‌های بی‌معنا' می‌دانست و فقط هنر کلاسیک را تحسین می‌کرد." required></textarea>
+            </fieldset>
+
+            <fieldset> <legend>۹. معرفت‌شناسی</legend>
+                <p>معتبرترین راه برای رسیدن به حقیقت چیست؟</p>
+                <label><input type="radio" name="epistemology" value="خردگرایی" required> منطق، عقل و استدلال محض.</label>
+                <label><input type="radio" name="epistemology" value="تجربه‌گرایی" required> تجربه، مشاهده و داده‌های عینی.</label>
+                <label><input type="radio" name="epistemology" value="شهودگرایی" required> شهود، الهام و احساسات درونی.</label>
+                <label class="evidence-label" for="epistemology_evidence">شواهد:</label>
+                <textarea id="epistemology_evidence" name="epistemology_evidence" placeholder="مثال: قبل از هر تصمیم بزرگی، هفته‌ها داده‌ها و آمار را شخصاً تحلیل می‌کرد." required></textarea>
+            </fieldset>
+            
+            <fieldset> <legend>۱۰. اخلاق</legend>
+                <p>محرک اصلی برای یک عمل "خوب" چیست؟</p>
+                <label><input type="radio" name="ethics" value="وظیفه‌گرایی" required> پیروی از اصول و وظایف جهانی (صرف نظر از نتیجه).</label>
+                <label><input type="radio" name="ethics" value="نتیجه‌گرایی" required> رسیدن به بهترین نتیجه ممکن برای بیشترین افراد.</label>
+                <label><input type="radio" name="ethics" value="فضیلت‌گرایی" required> پرورش شخصیت و فضایل درونی (شجاعت، صداقت).</label>
+                <label class="evidence-label" for="ethics_evidence">شواهد:</label>
+                <textarea id="ethics_evidence" name="ethics_evidence" placeholder="مثال: با اینکه حقیقت به ضرر شرکت بود، او اصرار داشت که باید به مشتریان گفته شود." required></textarea>
+            </fieldset>
+
+            <fieldset> <legend>۱۱. نقش فناوری</legend>
+                <p>فناوری چه تاثیری بر بشریت دارد؟</p>
+                <label><input type="radio" name="technology" value="ابزار آزادی و پیشرفت" required> ابزاری قدرتمند برای آزادی، توانمندسازی و پیشرفت بشر است.</label>
+                <label><input type="radio" name="technology" value="منشا مشکلات جدید" required> منشا مشکلات جدید، از خودبیگانگی و تهدیدی برای انسانیت است.</label>
+                <label><input type="radio" name="technology" value="ابزاری خنثی و بی‌طرف" required> ابزاری خنثی است که تاثیر خوب یا بد آن به نحوه استفاده ما بستگی دارد.</label>
+                <label class="evidence-label" for="technology_evidence">شواهد:</label>
+                <textarea id="technology_evidence" name="technology_evidence" placeholder="مثال: در سخنرانی خود گفت 'فناوری می‌تواند بزرگترین متحد ما یا بدترین دشمن ما باشد.'" required></textarea>
+            </fieldset>
+
+            <fieldset> <legend>۱۲. فلسفه اجتماعی</legend>
+                <p>در تعارض بین فرد و جامعه، اولویت با کدام است؟</p>
+                <label><input type="radio" name="social" value="فردگرایی" required> آزادی و حقوق فردی.</label>
+                <label><input type="radio" name="social" value="جمع‌گرایی" required> منفعت و ثبات کل جامعه.</label>
+                <label><input type="radio" name="social" value="برابری‌طلبی" required> برابری و توزیع عادلانه منابع.</label>
+                <label class="evidence-label" for="social_evidence">شواهد:</label>
+                <textarea id="social_evidence" name="social_evidence" placeholder="مثال: او معتقد بود آزادی بیان حتی اگر به ضرر امنیت جامعه باشد، باید حفظ شود." required></textarea>
+            </fieldset>
+
+            <fieldset> <legend>۱۳. مفهوم عدالت</legend>
+                 <p>عدالت واقعی چیست؟</p>
+                <label><input type="radio" name="justice" value="عدالت تنبیهی" required> تنبیه مجرم متناسب با جرمی که انجام داده است.</label>
+                <label><input type="radio" name="justice" value="عدالت ترمیمی" required> ترمیم آسیب وارد شده به قربانی و جامعه و اصلاح مجرم.</label>
+                <label><input type="radio" name="justice" value="عدالت توزیعی" required> توزیع منصفانه فرصت‌ها، منابع و قدرت در جامعه.</label>
+                 <label class="evidence-label" for="justice_evidence">شواهد:</label>
+                <textarea id="justice_evidence" name="justice_evidence" placeholder="مثال: تمام سیاست‌های اجتماعی او بر 'ایجاد فرصت‌های برابر برای همه' متمرکز بود." required></textarea>
+            </fieldset>
+
+            <fieldset> <legend>۱۴. نگاه به آینده و پیشرفت</legend>
+                <p>مسیر کلی حرکت تاریخ چگونه است؟</p>
+                <label><input type="radio" name="progress" value="خوش‌بینانه" required> خوش‌بینانه: بشر به طور کلی در حال حرکت به سوی آینده‌ای بهتر است.</label>
+                <label><input type="radio" name="progress" value="بدبینانه/چرخه‌ای" required> بدبینانه/چرخه‌ای: تاریخ تکرار می‌شود و پیشرفت یک توهم است.</label>
+                <label><input type="radio" name="progress" value="محتاطانه" required> محتاطانه: آینده کاملاً به انتخاب‌های امروز ما بستگی دارد.</label>
+                <label class="evidence-label" for="progress_evidence">شواهد:</label>
+                <textarea id="progress_evidence" name="progress_evidence" placeholder="مثال: علی‌رغم مشکلات، او همیشه به توانایی نسل بعد برای حل مشکلات ایمان داشت." required></textarea>
+            </fieldset>
+            
+            <fieldset> <legend>۱۵. هویت شخصی</legend>
+                <p>چه چیزی هویت یک فرد را تعریف می‌کند؟</p>
+                <label><input type="radio" name="identity" value="افکار و خاطرات" required> افکار، خاطرات و آگاهی درونی او.</label>
+                <label><input type="radio" name="identity" value="اعمال و تاثیرات" required> اعمال، نقش‌ها و تاثیری که در جهان می‌گذارد.</label>
+                <label><input type="radio" name="identity" value="روابط و تعلقات" required> روابط او با دیگران و جایگاهش در اجتماع.</label>
+                <label class="evidence-label" for="identity_evidence">شواهد:</label>
+                <textarea id="identity_evidence" name="identity_evidence" placeholder="مثال: در زندگی‌نامه‌اش نوشت: 'ما آن چیزی هستیم که انجام می‌دهیم، نه آن چیزی که می‌گوییم.'" required></textarea>
+            </fieldset>
+
+            <button type="submit">ایجاد پاسخنامه کامل</button>
+        </form>
+
+        <div id="output-container" style="display: none;">
+            <h2>پاسخنامه کامل آماده کپی است:</h2>
+            <textarea id="output-text" readonly></textarea>
+            <button id="copy-button" style="background-color: #28a745; margin-top: 10px;">کپی کردن متن</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('philosophyForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            let outputText = 'تحليل جامع فلسفه بنيادی (نسخه کامل با تمام جزئیات)\n';
+            outputText += '=======================================================\n\n';
+
+            const fieldsets = form.querySelectorAll('fieldset');
+
+            fieldsets.forEach((fieldset) => {
+                const questionTitle = fieldset.querySelector('legend').textContent.trim();
+                const questionText = fieldset.querySelector('p').textContent.trim();
+                
+                outputText += `--- ${questionTitle} ---\n\n`;
+                outputText += `سوال: ${questionText}\n\n`;
+
+                outputText += 'گزینه‌های موجود:\n';
+                const radioLabels = Array.from(fieldset.querySelectorAll('input[type="radio"]'))
+                                         .map(radio => radio.parentElement.textContent.trim());
+                radioLabels.forEach(labelText => {
+                    outputText += `- ${labelText}\n`;
+                });
+                outputText += '\n';
+
+                const selectedRadio = fieldset.querySelector('input[type="radio"]:checked');
+                let selectedOptionText = 'هیچ گزینه‌ای انتخاب نشده است.';
+                if (selectedRadio) {
+                    selectedOptionText = selectedRadio.parentElement.textContent.trim();
+                }
+                outputText += `>> گزینه انتخاب شده: ${selectedOptionText}\n\n`;
+
+                const evidenceText = fieldset.querySelector('textarea').value.trim();
+                outputText += `شواهد ارائه شده توسط کاربر:\n"${evidenceText}"\n\n`;
+                
+                outputText += '-------------------------------------------------------\n\n';
+            });
+
+            const outputContainer = document.getElementById('output-container');
+            const outputTextArea = document.getElementById('output-text');
+            outputTextArea.value = outputText;
+            outputContainer.style.display = 'block';
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        const copyButton = document.getElementById('copy-button');
+        copyButton.addEventListener('click', function() {
+            const outputTextArea = document.getElementById('output-text');
+            outputTextArea.select();
+            document.execCommand('copy');
+            copyButton.textContent = 'کپی شد!';
+            setTimeout(() => { copyButton.textContent = 'کپی کردن متن'; }, 2000);
+        });
+    </script>
+</body>
+</html>
